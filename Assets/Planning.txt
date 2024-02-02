@@ -1,0 +1,21 @@
+    *WHAT TO DO*
+Basic RPG-Prototyp, den ska vara enkel och finslipas innan vidare saker läggs till. 
+
+    *GRUNLÄGGANDE*
+Gå runt med adekvata animationer
+Prata med en NPC 
+Utnämna ett objekt att interagera med
+Tracka vad som interagerats med
+Dialogrespons till lyckad interaktion
+
+    *VIDARE*
+Kunna skilja mellan interactable objecs
+Basic UI
+Grundläggande notiser
+Basic ljudimplementation
+
+    *AVANCERAT*
+Framing och storytelling
+Göra att dialogen känns  bra
+Upgradera basic kod till mer robusta versioner
+Animera bakgrunder 
