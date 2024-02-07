@@ -1,0 +1,5 @@
+
+Size: 1024x1024 
+
+UV Map setup: 
+Divided into 64 equal squares
