@@ -7,12 +7,17 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")]
     public float moveSpeed;
+    [Tooltip("Hur mycket rigidbody drag som spelaren ska få när den är på marken")]
     public float groundDrag;
-
+    [Tooltip("Kraft upåt när man hoppar")]
     public float jumpForce;
+    [Tooltip("Hur ofta man får hoppa")]
     public float jumpCooldown;
+    [Tooltip("Multiplier för input som ges medans man är i luften")]
     public float airMultiplier;
     private bool readyToJump;
+    [Tooltip("Value för hur snabbt spelaren roteras till rätt riktning/kamerans riktning när den rör på sig")]
+    public float rotationSpeed;
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
 
@@ -22,10 +27,11 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 moveDirection;
     private Rigidbody rb;
     [Header("Ground Check")]
+    [Tooltip("Används för att raycasta groundcheck")]
     public float playerHeight;
     public LayerMask groundMask;
     private bool grounded;
-    public Transform orientation;
+    public Transform cameraTransform;
     // Start is called before the first frame update
     void Start()
     {
@@ -71,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void MovePlayer()
     {
-        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+        moveDirection = cameraTransform.forward * verticalInput + cameraTransform.right * horizontalInput;
 
         if (grounded)
         {
@@ -80,6 +86,14 @@ public class PlayerMovement : MonoBehaviour
         else if (!grounded)
         {
             rb.AddForce(moveDirection.normalized * moveSpeed * 10 * airMultiplier, ForceMode.Force);
+        }
+        if (moveDirection != Vector3.zero)
+        {
+            Vector3 tempDir = new Vector3(moveDirection.x, 0, moveDirection.z);
+
+            Quaternion toRotation = Quaternion.LookRotation(tempDir, Vector3.up);
+
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
         }
     }
     private void SpeedControl()
@@ -102,9 +116,20 @@ public class PlayerMovement : MonoBehaviour
     {
         readyToJump = true;
     }
-    private void OnDrawGizmos()
+    /*private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(transform.position + new Vector3(0, 0.8f, 0), new Vector3(transform.position.x, transform.position.y - (playerHeight * 0.5f + 0.1f), transform.position.z) -transform.position);
+    }*/
+    private void OnApplicationFocus(bool focus)
+    {
+        if (focus)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
 }
