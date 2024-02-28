@@ -18,9 +18,10 @@ public class QuestManager : MonoBehaviour
     private Dictionary<String, Quest> CreateQuestMap()
     {
         
-        QuestInfoSO[] allQuest = Resources.LoadAll<QuestInfoSO>("Quest");
+        QuestInfoSO[] allQuest = Resources.LoadAll<QuestInfoSO>("Quests");
 
         Dictionary<string, Quest> idToQuestMap = new Dictionary<string, Quest>();
+        Debug.Log(idToQuestMap.Count);
         foreach (QuestInfoSO questInfo in allQuest)
         {
             if (idToQuestMap.ContainsKey(questInfo.id))
