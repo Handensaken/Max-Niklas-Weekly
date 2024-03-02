@@ -56,6 +56,9 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.drag = 0;
         }
+        if (Input.GetKeyDown(KeyCode.V)){
+            GameEventsManager.instance.inputEvents.SubmitPressed();
+        }
     }
     void FixedUpdate()
     {
@@ -78,6 +81,7 @@ public class PlayerMovement : MonoBehaviour
     private void MovePlayer()
     {
         moveDirection = cameraTransform.forward * verticalInput + cameraTransform.right * horizontalInput;
+        moveDirection.y = 0;
 
         if (grounded)
         {
