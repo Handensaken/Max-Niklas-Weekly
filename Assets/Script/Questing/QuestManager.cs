@@ -64,6 +64,7 @@ public class QuestManager : MonoBehaviour
             quest.InstantiateCurrentQuestStep(this.transform);
         }
         else {
+            
             ChangeQuestState(quest.info.id, QuestState.CAN_FINISH);
         }
     }
