@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <id>k__BackingField: Test
   displayName: Go Interact
-  levelRequirement: 1
+  levelRequirement: 0
   questPrerequisites: []
   questStepPrefabs:
   - {fileID: 2335667582441383895, guid: a72f1ede790851a46ba1762c469103a7, type: 3}
