@@ -385,6 +385,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requirementsNotMetToStartIcon: {fileID: 189834592145357159}
-  canStartIcon: {fileID: 189834592145357159}
+  canStartIcon: {fileID: 819348713441981918}
   requirementsNotMetToFinishIcon: {fileID: 4628731534440155507}
   canFinishIcon: {fileID: 1211507945750218661}
