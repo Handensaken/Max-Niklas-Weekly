@@ -15,9 +15,9 @@ public class QuestLogScrollingList : MonoBehaviour
     [SerializeField] private GameObject questLogButtonPrefab;
 
     private Dictionary<string, QuestLogButton> idToButtonMap = new Dictionary<string, QuestLogButton>();
-
+/*
     private void Start(){
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 20; i++)
         {
             QuestInfoSO questInfoTest = ScriptableObject.CreateInstance<QuestInfoSO>();
             questInfoTest.id = "test_" + i;
@@ -34,7 +34,7 @@ public class QuestLogScrollingList : MonoBehaviour
             }
         }
     }
-
+*/
     public QuestLogButton CreateButtonIfNotExists(Quest quest, UnityAction selectAction)
     {
         QuestLogButton questLogButton = null;

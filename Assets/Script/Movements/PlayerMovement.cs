@@ -129,11 +129,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (focus)
         {
-            Cursor.lockState = CursorLockMode.Locked;
+            //Cursor.lockState = CursorLockMode.Locked;
         }
         else
         {
-            Cursor.lockState = CursorLockMode.None;
+            //Cursor.lockState = CursorLockMode.None;
         }
     }
 }

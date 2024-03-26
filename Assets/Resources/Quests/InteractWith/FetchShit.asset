@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: FetchShit
   m_EditorClassIdentifier: 
   <id>k__BackingField: FetchShit
-  displayName: 
-  levelRequirement: 0
+  displayName: FetchShit
+  levelRequirement: 2
   questPrerequisites:
   - {fileID: 11400000, guid: f508e4f1a4c3f9c47ab6ce4a094c9aff, type: 2}
   questStepPrefabs:
   - {fileID: 1533847657315520864, guid: ecec94d7fa840114c9299380375ee112, type: 3}
-  goldReward: 0
-  experienceReward: 0
+  goldReward: 50
+  experienceReward: 150
