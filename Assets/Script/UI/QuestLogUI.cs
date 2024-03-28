@@ -34,11 +34,13 @@ public class QuestLogUI : MonoBehaviour
         {
             SetQuestLogInfo(quest);
         });
-        if (firstSelectedButton = questLogButton.button)
+        if (firstSelectedButton == questLogButton.button)
         {
             firstSelectedButton = questLogButton.button;
             firstSelectedButton.Select();
         }
+
+        questLogButton.SetState(quest.state);
     }
 
     private void SetQuestLogInfo(Quest quest)
