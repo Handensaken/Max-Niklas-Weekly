@@ -57,7 +57,5 @@ public class QuestLogUI : MonoBehaviour
 
         goldRewardsText.text = quest.info.goldReward + " GOLD";
         experianceRewardsText.text = quest.info.experienceReward + " XP";
-
     }
-
 }

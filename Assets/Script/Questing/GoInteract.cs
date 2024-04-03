@@ -10,7 +10,13 @@ public class GoInteract : QuestStep
         if (otherCollider.CompareTag("Player"))
         {
             FinishQuestStep();
+            UpdateState();
         }
     }
     // protected override void SetQuestStepState(string state){ }
+    protected void UpdateState()
+    {
+        string state = "You have interacted!";
+        ChangeState(state);
+    }
 }
