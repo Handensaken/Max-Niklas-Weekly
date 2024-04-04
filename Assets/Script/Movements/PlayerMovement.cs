@@ -56,9 +56,6 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.drag = 0;
         }
-        if (Input.GetKeyDown(KeyCode.V)){
-            GameEventsManager.instance.inputEvents.SubmitPressed();
-        }
     }
     void FixedUpdate()
     {

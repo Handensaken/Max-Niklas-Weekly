@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class QuestLogUI : MonoBehaviour
 {
@@ -21,11 +22,33 @@ public class QuestLogUI : MonoBehaviour
 
     private void OnEnable()
     {
+        GameEventsManager.instance.inputEvents.onQuestLogTogglePressed += QuestLogTogglePressed;
         GameEventsManager.instance.questEvents.onQuestStateChange += QuestStateChange;
     }
     private void OnDisable()
     {
+        GameEventsManager.instance.inputEvents.onQuestLogTogglePressed -= QuestLogTogglePressed;
         GameEventsManager.instance.questEvents.onQuestStateChange -= QuestStateChange;
+    }
+    public void QuestLogTogglePressed(){
+        if (contentParent.activeInHierarchy){
+            HideUI();
+        }
+        else{
+            ShowUI();
+        }
+    }
+    private void HideUI(){
+        contentParent.SetActive(false);
+        
+        EventSystem.current.SetSelectedGameObject(null);
+    }
+    private void ShowUI(){
+        contentParent.SetActive(true);
+
+        if (firstSelectedButton != null){
+            firstSelectedButton.Select();
+        }
     }
 
     private void QuestStateChange(Quest quest)

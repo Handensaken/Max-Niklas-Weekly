@@ -1,0 +1,54 @@
+{
+    "name": "PlayerControlls",
+    "maps": [
+        {
+            "name": "Gameplay",
+            "id": "89173296-782b-4223-88b1-692a6fe23fad",
+            "actions": [
+                {
+                    "name": "ToggleQuestLog",
+                    "type": "Button",
+                    "id": "cea64d2b-bddc-4aa2-9a2c-b2347b7e2a29",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SubmitPressed",
+                    "type": "Button",
+                    "id": "1cf4a0c2-9f2a-4032-98f0-cad145144f75",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "096af358-b6ad-4615-b5c0-151ad30bffd1",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleQuestLog",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dcdcc97f-4b5c-446b-8355-a7902f199d1e",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SubmitPressed",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

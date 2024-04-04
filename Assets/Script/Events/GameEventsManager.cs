@@ -7,12 +7,14 @@ public class GameEventsManager : MonoBehaviour
     public static GameEventsManager instance { get; private set; }
     public QuestEvents questEvents;
     public InputEvents inputEvents;
+    //public PlayerEvents playerEvents;
 
     private void Awake()
     {
         instance = this;
         questEvents = new QuestEvents();
         inputEvents = new InputEvents();
+        //playerEvents = new PlayerEvents();
     }
     
 }
