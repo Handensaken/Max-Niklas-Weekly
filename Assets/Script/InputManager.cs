@@ -16,7 +16,4 @@ public void ToggleQuestUI(InputAction.CallbackContext context){
         GameEventsManager.instance.inputEvents.SubmitPressed();
     }
   }
-  public void Test(){
-    Debug.Log("pepe");
-  }
 }

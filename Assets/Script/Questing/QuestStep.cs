@@ -23,7 +23,7 @@ public abstract class QuestStep : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-    protected void ChangeState(string newState){
-        GameEventsManager.instance.questEvents.QuestStepStateChange(questId, stepIndex, new QuestStepState(newState));
+    protected void ChangeState(string newState, string newStatus){
+        GameEventsManager.instance.questEvents.QuestStepStateChange(questId, stepIndex, new QuestStepState(newState, newStatus));
     }
 }

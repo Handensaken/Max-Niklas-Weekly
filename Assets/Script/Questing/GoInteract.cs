@@ -5,6 +5,12 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 public class GoInteract : QuestStep
 {
+    private void Start()
+    {
+        string status = "Have not interacted yet!";
+        ChangeState("", status);
+
+    }
     private void OnTriggerEnter(Collider otherCollider)
     {
         if (otherCollider.CompareTag("Player"))
@@ -16,7 +22,7 @@ public class GoInteract : QuestStep
     // protected override void SetQuestStepState(string state){ }
     protected void UpdateState()
     {
-        string state = "You have interacted!";
-        ChangeState(state);
+        string status = "Have interacted!";
+        ChangeState("", status);
     }
 }

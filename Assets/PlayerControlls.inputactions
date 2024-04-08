@@ -27,23 +27,23 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "096af358-b6ad-4615-b5c0-151ad30bffd1",
-                    "path": "<Keyboard>/q",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ToggleQuestLog",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "dcdcc97f-4b5c-446b-8355-a7902f199d1e",
                     "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "SubmitPressed",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "193d22c2-1cab-4453-947c-8bd96d82385b",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleQuestLog",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -30,25 +30,40 @@ public class QuestLogUI : MonoBehaviour
         GameEventsManager.instance.inputEvents.onQuestLogTogglePressed -= QuestLogTogglePressed;
         GameEventsManager.instance.questEvents.onQuestStateChange -= QuestStateChange;
     }
-    public void QuestLogTogglePressed(){
-        if (contentParent.activeInHierarchy){
+    public void QuestLogTogglePressed()
+    {
+        if (contentParent.activeInHierarchy)
+        {
             HideUI();
+            GameEventsManager.instance.playerEvents.EnableMovement();
+            GameEventsManager.instance.cameraEvents.SwapCamera(CameraStates.ThirdPerson);
+            Cursor.lockState = CursorLockMode.Locked;
+
         }
-        else{
+        else
+        {
             ShowUI();
+            GameEventsManager.instance.cameraEvents.SwapCamera(CameraStates.CloseUp);
+            GameEventsManager.instance.playerEvents.DisableMovement();
+            Cursor.lockState = CursorLockMode.None;
+
         }
     }
-    private void HideUI(){
+    private void HideUI()
+    {
         contentParent.SetActive(false);
-        
+
         EventSystem.current.SetSelectedGameObject(null);
     }
-    private void ShowUI(){
+    private void ShowUI()
+    {
         contentParent.SetActive(true);
 
-        if (firstSelectedButton != null){
+        if (firstSelectedButton != null)
+        {
             firstSelectedButton.Select();
         }
+        EventSystem.current.SetSelectedGameObject(null);
     }
 
     private void QuestStateChange(Quest quest)
@@ -69,6 +84,8 @@ public class QuestLogUI : MonoBehaviour
     private void SetQuestLogInfo(Quest quest)
     {
         questDisplayNameText.text = quest.info.displayName;
+
+        questStatusText.text = quest.GetFullStatusText();
 
         levelRequirementsText.text = "Level " + quest.info.levelRequirement;
         questRequirementsText.text = "";

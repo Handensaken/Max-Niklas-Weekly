@@ -1,8 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using System;
 
-public class PlayerEvents : MonoBehaviour
+public class PlayerEvents
 {
-   
+    public event Action OnDisableMovement;
+    public void DisableMovement()
+    {
+        if (OnDisableMovement != null)
+        {
+            OnDisableMovement();
+        }
+    }
+    public event Action OnEnableMovement;
+    public void EnableMovement()
+    {
+        if (OnEnableMovement != null)
+        {
+            OnEnableMovement();
+        }
+    }
 }

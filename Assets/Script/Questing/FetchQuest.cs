@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
@@ -8,6 +10,12 @@ using UnityEngine;
 public class FetchQuest : QuestStep
 {
     private bool playerClose = false;
+    private void Start()
+    {
+        string status = "Have not fetched yes!";
+        ChangeState("", status);
+
+    }
     private void OnEnable()
     {
         GameEventsManager.instance.inputEvents.OnSubmitPressed += SubmitPressed;
@@ -20,6 +28,8 @@ public class FetchQuest : QuestStep
     {
         if (playerClose)
         {
+            string status = "Have fetched!";
+            ChangeState("", status);
             FinishQuestStep();
         }
     }
