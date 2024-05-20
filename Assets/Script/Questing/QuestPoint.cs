@@ -35,10 +35,8 @@ public class QuestPoint : MonoBehaviour
     }
     private void SubmitPressed()
     {
-        Debug.Log("yes");
         if (!playerIsNear)
         {
-            Debug.Log("yeshellyes");
             return;
         }
         if (currentQuestState.Equals(QuestState.CAN_START) && startPoint)

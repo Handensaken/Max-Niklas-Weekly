@@ -32,12 +32,34 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
     private bool grounded;
     public Transform cameraTransform;
+    public bool movementDisabled = false;
     // Start is called before the first frame update
     void Start()
     {
         readyToJump = true;
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+    }
+    public void OnEnable()
+    {
+        GameEventsManager.instance.playerEvents.OnDisableMovement += disableMovement;
+        GameEventsManager.instance.playerEvents.OnEnableMovement += enableMovement;
+
+
+    }
+    public void OnDisable()
+    {
+        GameEventsManager.instance.playerEvents.OnDisableMovement -= disableMovement;
+        GameEventsManager.instance.playerEvents.OnEnableMovement -= enableMovement;
+
+    }
+    public void disableMovement()
+    {
+        movementDisabled = true;
+    }
+    public void enableMovement()
+    {
+        movementDisabled = false;
     }
 
     // Update is called once per frame
@@ -56,13 +78,13 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.drag = 0;
         }
-        if (Input.GetKeyDown(KeyCode.V)){
-            GameEventsManager.instance.inputEvents.SubmitPressed();
-        }
     }
     void FixedUpdate()
     {
-        MovePlayer();
+        if (movementDisabled != true)
+        {
+            MovePlayer();
+        }
     }
     private void MyInput()
     {

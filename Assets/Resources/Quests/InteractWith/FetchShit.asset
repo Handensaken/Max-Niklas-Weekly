@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f254db587347084cbe472b6fd75891e, type: 3}
+  m_Name: FetchShit
+  m_EditorClassIdentifier: 
+  <id>k__BackingField: FetchShit
+  displayName: FetchShit
+  levelRequirement: 2
+  questPrerequisites:
+  - {fileID: 11400000, guid: f508e4f1a4c3f9c47ab6ce4a094c9aff, type: 2}
+  questStepPrefabs:
+  - {fileID: 1533847657315520864, guid: ecec94d7fa840114c9299380375ee112, type: 3}
+  goldReward: 50
+  experienceReward: 150
