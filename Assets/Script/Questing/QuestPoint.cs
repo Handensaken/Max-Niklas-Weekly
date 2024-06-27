@@ -4,6 +4,11 @@ using System.Collections.Generic;
 using UnityEditor.ShortcutManagement;
 using UnityEngine;
 using System.Net;
+using Yarn.Unity;
+using Yarn;
+using Unity.VisualScripting;
+using UnityEngine.UI;
+using System;
 
 [RequireComponent(typeof(SphereCollider))]
 public class QuestPoint : MonoBehaviour
@@ -13,7 +18,8 @@ public class QuestPoint : MonoBehaviour
     [Header("Config")]
     [SerializeField] private bool startPoint = true;
     [SerializeField] private bool finishPoint = true;
-
+    private DialogueRunner dialogueRunner; //utility object that servers lines of dialogue
+    public String questDialogueName;
     private bool playerIsNear = false;
     private string questID;
     private QuestState currentQuestState;
@@ -22,6 +28,7 @@ public class QuestPoint : MonoBehaviour
     {
         questID = questInfoForPoint.id;
         questIcon = GetComponentInChildren<QuestIcon>();
+        dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
     }
     private void OnEnable()
     {
@@ -42,7 +49,11 @@ public class QuestPoint : MonoBehaviour
         if (currentQuestState.Equals(QuestState.CAN_START) && startPoint)
         {
             GameEventsManager.instance.questEvents.StartQuest(questID);
-            Debug.Log("Started ");
+            Debug.Log("Started " + questID);
+            if (questDialogueName != null)
+            {
+                dialogueRunner.StartDialogue(questDialogueName);
+            }
         }
         else if (currentQuestState.Equals(QuestState.CAN_FINISH) && finishPoint)
         {
@@ -55,7 +66,7 @@ public class QuestPoint : MonoBehaviour
         if (quest.info.id.Equals(questID))
         {
             currentQuestState = quest.state;
-            questIcon.SetState(currentQuestState,startPoint,finishPoint);
+            questIcon.SetState(currentQuestState, startPoint, finishPoint);
         }
     }
     private void OnTriggerEnter(Collider otherCollider)

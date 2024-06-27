@@ -1,0 +1,42 @@
+title: Npc
+color: red
+tags:
+position: -384,-618
+---
+<<declare $questStarted = false>>
+Bob: You have to help me.
+Bob: I cant find me tree. It is green and brown.
+<<jump Quest>>
+===
+title: Tree
+group: option
+position: 194,-89
+---
+In the winter they are white.
+<<jump Quest>>
+===
+title: Agree
+group: option
+position: -39,-88
+---
+Thank you, that tree cant be hiding far from here.
+<<set $questStarted to true>>
+===
+title: No
+group: option
+position: -265,-90
+---
+Thank you, I will wait here for your return.
+<<set $questStarted to true>>
+===
+title: Quest
+position: 35,-399
+---
+Bob: Could you find it for me?
+-> Are not all trees green and brown?
+    <<jump Tree>>
+->Sure I will.
+    <<jump Agree>>
+->No I have other stuff to do.
+    <<jump No>>
+===
